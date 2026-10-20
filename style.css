@@ -1,0 +1,93 @@
+/* The game itself is a strict 160x144 four-shade canvas. This stylesheet only
+   frames that canvas and scales it with nearest-neighbour sampling. */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #071807;
+  color: #9bbc0f;
+  font-family: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Courier New", monospace;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  image-rendering: pixelated;
+}
+
+#shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+}
+
+#screen-frame {
+  background: #0f380f;
+  padding: 4px;
+  box-shadow:
+    0 0 0 2px #306230,
+    0 0 0 6px #0b220b,
+    0 18px 60px rgba(0, 0, 0, 0.65);
+}
+
+canvas {
+  display: block;
+  width: 640px;
+  height: 576px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #9bbc0f;
+  outline: none;
+}
+
+#controls {
+  margin: 0;
+  color: #6f8f2a;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  user-select: none;
+  text-align: center;
+}
+
+#boot-error {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  margin: 0;
+  padding: 20px;
+  overflow: auto;
+  background: #071807;
+  color: #9bbc0f;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 720px), (max-height: 680px) {
+  #shell {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  #screen-frame {
+    padding: 2px;
+  }
+
+  canvas {
+    width: min(88vw, calc((100vh - 90px) * 1.1111));
+    height: auto;
+    aspect-ratio: 10 / 9;
+  }
+
+  #controls {
+    font-size: 9px;
+  }
+}

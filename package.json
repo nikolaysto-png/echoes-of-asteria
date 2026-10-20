@@ -1,0 +1,21 @@
+{
+  "name": "echoes-of-asteria",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A complete 160x144 four-shade monster-collecting RPG with original creatures, story, art, and chiptune audio.",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node tests/run-tests.mjs",
+    "test:node": "node tests/run-tests.mjs",
+    "test:jsc": "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc -m tests/run-tests.mjs"
+  },
+  "keywords": [
+    "game-boy",
+    "monster-collector",
+    "rpg",
+    "canvas",
+    "web-audio"
+  ],
+  "license": "UNLICENSED"
+}

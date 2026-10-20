@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f380f">
+  <title>ECHOES OF ASTERIA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="shell">
+    <div id="screen-frame">
+      <canvas id="game" width="160" height="144" aria-label="Echoes of Asteria game screen" tabindex="0"></canvas>
+    </div>
+    <p id="controls" aria-hidden="true">ARROWS / WASD move &nbsp; Z confirm &nbsp; X back &nbsp; C menu</p>
+  </main>
+  <pre id="boot-error" hidden></pre>
+  <script>
+    window.addEventListener('error', (event) => {
+      const box = document.getElementById('boot-error');
+      if (!box) return;
+      box.hidden = false;
+      box.textContent += `[ERROR] ${event.message}\n  at ${event.filename}:${event.lineno}:${event.colno}\n`;
+    });
+    window.addEventListener('unhandledrejection', (event) => {
+      const box = document.getElementById('boot-error');
+      if (!box) return;
+      box.hidden = false;
+      box.textContent += `[PROMISE] ${event.reason}\n`;
+    });
+  </script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
