@@ -13,6 +13,8 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000/>.
 
+**Play online:** <https://nikolaysto-png.github.io/echoes-of-asteria/>
+
 Audio starts after your first click or keypress, as required by browser autoplay rules. The title screen and pause menu both include an audio/text-speed/shake options panel.
 
 ## Controls
